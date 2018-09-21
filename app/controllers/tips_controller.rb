@@ -18,4 +18,10 @@ class TipsController < ApplicationController
 
     @results = JSON.parse(resp.body)['response']['list']['listItems']['items']
   end
+
+  private
+
+  def tip_param(arg)
+    params.require(arg).permit(arg)
+  end
 end
